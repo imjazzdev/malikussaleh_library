@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "728322061783",
+    "project_id": "malikussaleh-library",
+    "storage_bucket": "malikussaleh-library.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:728322061783:android:e73c55e5af6d4a65b9c792",
+        "android_client_info": {
+          "package_name": "com.example.malikussaleh_library"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCV36p2-WbKtEVgTFS0cVH-2TnkW_dANrY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
