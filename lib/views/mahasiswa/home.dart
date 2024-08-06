@@ -43,8 +43,23 @@ class _HomeMahasiswaPageState extends State<HomeMahasiswaPage> {
     // ignore: use_build_context_synchronously
   }
 
+  void _showAttention() async {
+    await Future.delayed(Duration(milliseconds: 50));
+    AwesomeDialog(
+      context: context,
+      animType: AnimType.scale,
+      dialogType: DialogType.warning,
+      title: 'PERHATIAN!',
+      titleTextStyle: TextStyle(
+          color: Colors.red, fontWeight: FontWeight.bold, fontSize: 20),
+      desc: 'SETELAH BUKU DIBACA, MOHON DIKEMBALIKAN PADA RAK BUKU SEMULA!',
+      btnOkOnPress: () {},
+    ).show();
+  }
+
   @override
   void initState() {
+    _showAttention();
     fetchData();
     super.initState();
   }
@@ -135,18 +150,26 @@ class _HomeMahasiswaPageState extends State<HomeMahasiswaPage> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                'Tahun Terbit : ${snapshot.data!.docs[index]['tahun_terbit'].toString()}',
-                                style:
-                                    TextStyle(color: Colors.grey, fontSize: 12),
+                              Flexible(
+                                flex: 2,
+                                child: Text(
+                                  'Tahun Terbit : ${snapshot.data!.docs[index]['tahun_terbit'].toString()}',
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 12),
+                                ),
                               ),
                               SizedBox(
                                 width: 15,
                               ),
-                              Text(
-                                snapshot.data!.docs[index]['posisi'].toString(),
-                                style:
-                                    TextStyle(color: Colors.grey, fontSize: 12),
+                              Flexible(
+                                flex: 3,
+                                child: Text(
+                                  snapshot.data!.docs[index]['posisi']
+                                      .toString(),
+                                  overflow: TextOverflow.ellipsis,
+                                  style: TextStyle(
+                                      color: Colors.grey, fontSize: 12),
+                                ),
                               ),
                             ],
                           )

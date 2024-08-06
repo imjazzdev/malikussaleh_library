@@ -88,6 +88,7 @@ class _AddBookPageState extends State<AddBookPage> {
                     height: 50,
                     child: TextField(
                       controller: tahun_terbit,
+                      keyboardType: TextInputType.number,
                       decoration: InputDecoration(
                           hintText: 'Tahun Terbit', border: InputBorder.none),
                     ),
@@ -157,14 +158,20 @@ class _AddBookPageState extends State<AddBookPage> {
 
     // ignore: use_build_context_synchronously
     AwesomeDialog(
-            context: context,
-            animType: AnimType.scale,
-            dialogType: DialogType.success,
-            desc: 'Data berhasil ditambahkan',
-            btnOkOnPress: () {
-              // Navigator.pop(context);
-            },
-            btnCancelOnPress: () {})
-        .show();
+      context: context,
+      animType: AnimType.scale,
+      dialogType: DialogType.success,
+      desc: 'Data berhasil ditambahkan',
+      dismissOnTouchOutside: false,
+      btnOkOnPress: () {
+        setState(() {
+          isLoading = false;
+          judul.clear();
+          penulis.clear();
+          tahun_terbit.clear();
+          posisi.clear();
+        });
+      },
+    ).show();
   }
 }
