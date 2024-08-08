@@ -115,65 +115,131 @@ class _HomeMahasiswaPageState extends State<HomeMahasiswaPage> {
                   padding: EdgeInsets.all(20),
                   itemCount: snapshot.data!.docs.length,
                   itemBuilder: (context, index) {
-                    return Container(
-                      margin: EdgeInsets.only(bottom: 25),
-                      padding: EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey.withOpacity(0.5),
-                              blurRadius: 5,
-                            )
-                          ]),
-                      child: Column(
-                        children: [
-                          Text(
-                            snapshot.data!.docs[index]['judul'].toString(),
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                fontSize: 16,
-                                color: Colors.green.shade300,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            snapshot.data!.docs[index]['penulis'].toString(),
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          SizedBox(
-                            height: 15,
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Flexible(
-                                flex: 2,
-                                child: Text(
-                                  'Tahun Terbit : ${snapshot.data!.docs[index]['tahun_terbit'].toString()}',
+                    return InkWell(
+                      onTap: () {
+                        AwesomeDialog(
+                          context: context,
+                          animType: AnimType.scale,
+                          dialogType: DialogType.info,
+                          body: Padding(
+                            padding: const EdgeInsets.only(left: 10, right: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                const Text(
+                                  'Judul',
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
-                                      color: Colors.grey, fontSize: 12),
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.amber),
                                 ),
-                              ),
-                              SizedBox(
-                                width: 15,
-                              ),
-                              Flexible(
-                                flex: 3,
-                                child: Text(
-                                  snapshot.data!.docs[index]['posisi']
+                                Text(
+                                  snapshot.data!.docs[index]['judul']
                                       .toString(),
-                                  overflow: TextOverflow.ellipsis,
-                                  style: TextStyle(
-                                      color: Colors.grey, fontSize: 12),
+                                  textAlign: TextAlign.center,
                                 ),
-                              ),
-                            ],
-                          )
-                        ],
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                const Text(
+                                  'Penulis',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.amber),
+                                ),
+                                Text(snapshot.data!.docs[index]['penulis']
+                                    .toString()),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                const Text(
+                                  'Tahun Terbit',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.amber),
+                                ),
+                                Text(snapshot.data!.docs[index]['tahun_terbit']
+                                    .toString()),
+                                const SizedBox(
+                                  height: 5,
+                                ),
+                                const Text(
+                                  'Posisi',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.amber),
+                                ),
+                                Text(snapshot.data!.docs[index]['posisi']
+                                    .toString())
+                              ],
+                            ),
+                          ),
+                          btnOkOnPress: () {},
+                        ).show();
+                      },
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 25),
+                        padding: EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(15),
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                blurRadius: 5,
+                              )
+                            ]),
+                        child: Column(
+                          children: [
+                            Text(
+                              snapshot.data!.docs[index]['judul'].toString(),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.green.shade300,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              snapshot.data!.docs[index]['penulis'].toString(),
+                              style: TextStyle(color: Colors.grey),
+                            ),
+                            SizedBox(
+                              height: 15,
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Flexible(
+                                  flex: 2,
+                                  child: Text(
+                                    'Tahun Terbit : ${snapshot.data!.docs[index]['tahun_terbit'].toString()}',
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 12),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Flexible(
+                                  flex: 3,
+                                  child: Text(
+                                    snapshot.data!.docs[index]['posisi']
+                                        .toString(),
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                        color: Colors.grey, fontSize: 12),
+                                  ),
+                                ),
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     );
                   });
