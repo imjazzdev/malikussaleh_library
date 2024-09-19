@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:malikussaleh_library/views/mahasiswa/home.dart';
 import 'package:malikussaleh_library/views/mahasiswa/profile.dart';
 import 'package:malikussaleh_library/views/mahasiswa/search.dart';
+import 'package:malikussaleh_library/views/mahasiswa/searching.dart';
 import 'package:malikussaleh_library/views/signin.dart';
 import 'package:malikussaleh_library/views/signup.dart';
 import 'package:persistent_bottom_nav_bar/persistent-tab-view.dart';
@@ -26,7 +27,8 @@ class _MainNavigatorState extends State<MainNavigator> {
   List<Widget> _screen() {
     return [
       const HomeMahasiswaPage(),
-      const SearchMahasiswaPage(),
+      // const SearchMahasiswaPage(),
+      const SearchingMahasiswaPage(),
       const Profile(),
     ];
   }

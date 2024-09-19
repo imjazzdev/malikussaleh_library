@@ -23,6 +23,7 @@ class SearchMahasiswaPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isSubmit = false;
     return Scaffold(
       // drawer: Drawer(
       //   width: 200,
@@ -40,25 +41,33 @@ class SearchMahasiswaPage extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.all(15),
             child: TextField(
-                controller: controller,
-                focusNode: focusNode,
-                autofocus: true,
-                decoration: const InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Search',
-                )),
+              controller: controller,
+              focusNode: focusNode,
+              autofocus: true,
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(),
+                labelText: 'Search',
+              ),
+              onSubmitted: (value) {
+                isSubmit = true;
+              },
+            ),
           );
         },
         itemBuilder: (context, data) {
-          return Material(
-            elevation: 5,
-            shadowColor: Colors.grey,
-            child: ListTile(
-              contentPadding:
-                  const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
-              title: Text(data.toString()),
-            ),
-          );
+          if (isSubmit = true) {
+            return Material(
+              elevation: 5,
+              shadowColor: Colors.grey,
+              child: ListTile(
+                contentPadding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
+                title: Text(data.toString()),
+              ),
+            );
+          } else {
+            return SizedBox();
+          }
         },
         onSelected: (data) async {
           var databuku = await FirebaseFirestore.instance

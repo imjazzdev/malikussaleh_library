@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:malikussaleh_library/constants/constant.dart';
 import 'package:malikussaleh_library/views/admin/edit_book.dart';
 import 'package:malikussaleh_library/views/admin/search.dart';
+import 'package:malikussaleh_library/views/admin/searching.dart';
 
 import '../../components/drawer.dart';
 import 'add_book.dart';
@@ -50,7 +51,7 @@ class _HomeAdminPageState extends State<HomeAdminPage> {
     Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => SearchAdminPage(),
+          builder: (context) => SearchingAdminPage(),
         ));
   }
 
